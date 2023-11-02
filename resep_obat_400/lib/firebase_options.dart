@@ -17,10 +17,7 @@ import 'package:flutter/foundation.dart'
 class DefaultFirebaseOptions {
   static FirebaseOptions get currentPlatform {
     if (kIsWeb) {
-      throw UnsupportedError(
-        'DefaultFirebaseOptions have not been configured for web - '
-        'you can reconfigure this by running the FlutterFire CLI again.',
-      );
+      return web;
     }
     switch (defaultTargetPlatform) {
       case TargetPlatform.android:
@@ -28,10 +25,7 @@ class DefaultFirebaseOptions {
       case TargetPlatform.iOS:
         return ios;
       case TargetPlatform.macOS:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for macos - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
+        return macos;
       case TargetPlatform.windows:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for windows - '
@@ -49,6 +43,16 @@ class DefaultFirebaseOptions {
     }
   }
 
+  static const FirebaseOptions web = FirebaseOptions(
+    apiKey: 'AIzaSyAfshdEICukItOEuFqJLbjlGW-Iuy8iTJQ',
+    appId: '1:794740633526:web:dd98993dabb72ea8f69b17',
+    messagingSenderId: '794740633526',
+    projectId: 'goggxi-project-42b54',
+    authDomain: 'goggxi-project-42b54.firebaseapp.com',
+    storageBucket: 'goggxi-project-42b54.appspot.com',
+    measurementId: 'G-FMLTGM19WM',
+  );
+
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyAmyQEWcl5CS_qiGq3kn6gBp8rLiNaG-Pw',
     appId: '1:794740633526:android:6ccc2e15951d9feef69b17',
@@ -64,5 +68,14 @@ class DefaultFirebaseOptions {
     projectId: 'goggxi-project-42b54',
     storageBucket: 'goggxi-project-42b54.appspot.com',
     iosBundleId: 'com.goggxi.resepObat400',
+  );
+
+  static const FirebaseOptions macos = FirebaseOptions(
+    apiKey: 'AIzaSyDsj-shYsG4Vf-Te-om6G-jbA81oNw8FOc',
+    appId: '1:794740633526:ios:844332e91dbfae88f69b17',
+    messagingSenderId: '794740633526',
+    projectId: 'goggxi-project-42b54',
+    storageBucket: 'goggxi-project-42b54.appspot.com',
+    iosBundleId: 'com.goggxi.resepObat400.RunnerTests',
   );
 }
